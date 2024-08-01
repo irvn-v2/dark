@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Table</title>
+   {% load static %}
+    <link rel="stylesheet" href="{% static 'css/table.css' %}"> 
+    
+</head>
+<body>
+<table>
+    <tr>
+        <th>#</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Avator</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Mark</td>
+        <td>Blith</td>
+        <td><img src="{% static 'assets/images/mark.jpeg' %}" alt=""></td>
+        <td><button class="btn1">Edit</button></td>
+        <td><button class="btn2">Delete</button></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Lucy</td>
+        <td>Perry</td>
+        <td><img src="{% static 'assets/images/lucy.jpeg' %}" alt=""></td>
+        <td><button class="btn1">Edit</button></td>
+        <td><button class="btn2">Delete</button></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Oscar</td>
+        <td>Moha</td>
+        <td><img src="{% static 'assets/images/oscar.jpeg' %}" alt=""></td>
+        <td><button class="btn1">Edit</button></td>
+        <td><button class="btn2">Delete</button></td>
+    </tr>
+</table>
+
+</body>
+</html>

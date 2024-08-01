@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homepage</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+</head>
+<body>
+<h1>Welcome to Homepage</h1>
+<a href="{% url 'form' %}" class=" btn btn-primary">Form</a>
+<a href="{% url 'gallery' %}" class=" btn btn-outline-danger">Gallery</a>
+<a href="{% url 'table' %}" class=" btn btn-secondary">Info</a>
+
+<br>
+<p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dicta necessitatibus nulla officiis praesentium quae. Ea, iure, magni. Aspernatur dolore dolorem et explicabo maxime nemo porro quaerat quia tenetur vero.</span><span>Accusantium assumenda consequuntur corporis explicabo maiores nihil numquam quaerat quis repudiandae voluptatibus. Ab autem consequatur cumque, debitis est hic iste laudantium nemo officiis omnis quibusdam quisquam, quo sed veritatis, voluptates?</span></p>
+<br>
+<div class="home">
+    <img src="{% static 'assets/images/i1.jpeg' %}" alt="">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dignissimos esse excepturi illum ipsa iure maxime minus nisi non tempore. Accusamus corporis pariatur perferendis quos voluptate. Cum harum illo nisi.</p>
+</div>
+</body>
+</html>
