@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.realestate.navigation.ROUT_DETAIL
 import com.example.realestate.navigation.ROUT_HOME
 
 
@@ -67,15 +68,16 @@ fun HomeScreen(navController: NavController) {
          Spacer(modifier = Modifier.height(60.dp))
 
           Button(
-             onClick = { navController.navigate(ROUT_HOME) },
+             onClick = { navController.navigate(ROUT_DETAIL) },
 
              modifier = Modifier
-                 .fillMaxSize()
                  .height(50.dp)
                  .padding(start = 20.dp, end = 20.dp),
              colors = ButtonDefaults.buttonColors(Color.Magenta),
              shape = RoundedCornerShape(10.dp)
-          ){}
+          ){
+              Text(text = "Get Started")
+          }
 
     }
 

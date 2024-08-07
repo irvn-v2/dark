@@ -11,10 +11,22 @@ fun HomeScreen(navController: NavController){
 }
 
 @Composable
+fun AboutScreen(rememberNavController: NavController) {
+    TODO("Not yet implemented")
+}
+
+@Composable
 @Preview(showBackground = true)
 fun AboutScreenPreview(){
-
+    AboutScreen(rememberNavController())
 }
+
+
+
+
+
+
+
 
 
 
