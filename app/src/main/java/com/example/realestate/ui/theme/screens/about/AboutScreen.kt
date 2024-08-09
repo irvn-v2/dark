@@ -6,13 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun HomeScreen(navController: NavController){
-
-}
-
-@Composable
-fun AboutScreen(rememberNavController: NavController) {
-    TODO("Not yet implemented")
+fun AboutScreen(navController: NavController){
 }
 
 @Composable
