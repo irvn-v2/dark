@@ -16,6 +16,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -191,6 +192,16 @@ fun DetailsScreen(navController: NavController){
                 }
             }
 
+        }
+        Spacer(modifier = Modifier.height(30.dp))
+
+        Button(onClick = { /*TODO*/ },
+            modifier = Modifier
+                .height(50.dp)
+                .padding(start = 20.dp, end = 20.dp)
+        )
+        {
+            Text(text = "Continue")
         }
 
 

@@ -18,11 +18,17 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Face
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
@@ -48,6 +54,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -152,6 +159,7 @@ fun IntentScreen(navController: NavController){
                                 )
                             }
                         }
+                        val mContext= LocalContext.current
                         Column(modifier = Modifier.padding(start = 20.dp)) {
                             Text(text = "Visit Lavington", fontSize = 20.sp)
                             Text(text = "The best place you can find")
@@ -164,7 +172,11 @@ fun IntentScreen(navController: NavController){
                             }
                             Text(text = "54,783 reviews")
                             Button(
-                                onClick = { /*TODO*/ },
+                                onClick = {
+                                    val callIntent=Intent(Intent.ACTION_DIAL)
+                                    callIntent.data="tel:0741512929".toUri()
+                                    mContext.startActivity(callIntent)
+                                },
                                 colors = ButtonDefaults.buttonColors(Color.Magenta),
                                 shape = RoundedCornerShape(10.dp)
                             ) {
@@ -174,12 +186,13 @@ fun IntentScreen(navController: NavController){
                     }
                     Spacer(modifier = Modifier.height(10.dp))
 
+                    val mContext= LocalContext.current
                     Button(
                         onClick = {
-                           val simToolKitLaunchIntent =
-                               mContext.packageManager.getLaunchIntentForPackage("com.android.stk")
-                            simToolkitLaunchIntent?.let {mContext.startActivity(it)}
-                        },
+                            val simToolKitLaunchIntent =
+                                mContext.packageManager.getLaunchIntentForPackage("com.android.stk")
+                            simToolKitLaunchIntent?.let { mContext.startActivity(it) }
+                            } ,
                         modifier = Modifier
                             .height(50.dp)
                             .padding(start = 20.dp, end = 20.dp),
@@ -254,8 +267,8 @@ fun IntentScreen(navController: NavController){
                         onClick = {
                             val shareIntent=Intent(Intent.ACTION_SEND)
                             shareIntent.type="text/plain"
-                            shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this cool house")
-                            mContext.startActivity(Intent.createChooser(ShareIntent, "Share"))
+                            shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this cool content")
+                            mContext.startActivity(Intent.createChooser(shareIntent, "Share"))
                         },
 
                         modifier = Modifier
@@ -272,7 +285,7 @@ fun IntentScreen(navController: NavController){
                     Button(
                         onClick = {
                             val cameraIntent=Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                            if (cameraIntent.resoleActivity(mContext.packageManager)!=null){
+                            if (cameraIntent.resolveActivity(mContext.packageManager)!=null){
                                 mContext.startActivity(cameraIntent)
                             }else{
                                 println("Camera app is not available")
@@ -298,7 +311,7 @@ fun IntentScreen(navController: NavController){
 
 val bottomNavItems = listOf(
     BottomNavItem(
-        title = "Home",
+        title = "Homepage",
         route="home",
         selectedIcon=Icons.Filled.Home,
         unselectedIcon=Icons.Outlined.Home,
@@ -309,21 +322,30 @@ val bottomNavItems = listOf(
 
 
     BottomNavItem(
-        title = "Login",
-        route="login",
-        selectedIcon=Icons.Filled.Person,
-        unselectedIcon=Icons.Outlined.Person,
+        title = "Details",
+        route="detail",
+        selectedIcon=Icons.Filled.Info,
+        unselectedIcon=Icons.Outlined.Info,
         hasNews = true,
-        badges=5
+        badges=0
     ),
 
     BottomNavItem(
-        title = "Signup",
-        route="signup",
-        selectedIcon=Icons.Filled.Face,
-        unselectedIcon=Icons.Outlined.Face,
+        title = "Property",
+        route="property",
+        selectedIcon=Icons.Filled.FavoriteBorder,
+        unselectedIcon=Icons.Outlined.FavoriteBorder,
         hasNews = true,
-        badges=1
+        badges=0
+    ),
+
+    BottomNavItem(
+        title = "Sign up",
+        route="signup",
+        selectedIcon=Icons.Filled.Lock,
+        unselectedIcon=Icons.Outlined.Lock,
+        hasNews = true,
+        badges=0
     ),
 
 
