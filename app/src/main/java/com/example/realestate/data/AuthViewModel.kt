@@ -55,10 +55,8 @@ class AuthViewModel(var navController: NavController, var context: Context){
     }
 
     fun login(email: String, password: String){
-        progress.show()
 
         if (email.isBlank() || password.isBlank()){
-            progress.dismiss()
             Toast.makeText(context,"Please email and password cannot be blank",Toast.LENGTH_LONG).show()
         }else {
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
