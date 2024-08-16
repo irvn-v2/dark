@@ -162,7 +162,7 @@ fun SignupScreen(navController: NavController){
             fontFamily = FontFamily.Cursive,
             fontWeight = FontWeight.ExtraBold,
             color = Color.Black,
-            modifier = Modifier.clickable {ROUT_LOGIN}
+            modifier = Modifier.clickable {navController.navigate(ROUT_LOGIN)}
         )
 
     }

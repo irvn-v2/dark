@@ -20,6 +20,7 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.realestate.R
+import com.example.realestate.R.raw.property
 import com.example.realestate.navigation.ROUT_HOME
 import com.example.realestate.navigation.ROUT_LOGIN
 import com.example.realestate.navigation.ROUT_SIGNUP
@@ -45,12 +46,12 @@ fun SplashScreen(navController: NavController){
     var coroutineScope = rememberCoroutineScope()
     coroutineScope.launch {
         delay(2000)
-        navController.navigate(ROUT_SIGNUP)
+        navController.navigate(ROUT_LOGIN)
     }
 
 
     //Lottie Animation
-    val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.property))
+    val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(property))
     val progress by animateLottieCompositionAsState(composition)
     LottieAnimation(composition, progress,
         modifier = Modifier.size(300.dp)
